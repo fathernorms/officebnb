@@ -1,11 +1,14 @@
-.footer {
+footer {
   display: flex;
   background-color: white;
-  align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   height: 100px;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
-.footer .fa-heart {
+footer .fa-heart {
   color: red;
 }

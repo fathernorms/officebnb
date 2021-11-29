@@ -11,3 +11,18 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+footer {
+  display: flex;
+  background-color: white;
+  justify-content: center;
+  height: 100px;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+footer .fa-heart {
+  color: red;
+}
