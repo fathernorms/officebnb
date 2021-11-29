@@ -1,0 +1,10 @@
+<div class="container">
+  <%= simple_form_for listing do |f| %>
+    <%= f.input :name, label: 'Name of space:' %>
+    <%= f.input :address, label: 'Address of space:' %>
+    <%= f.input :description, as: :text, label: 'Description of space:' %>
+    <%= f.input :capacity, label: 'Capacity of space:' %>
+    <%= f.input :rate_per_day, label: 'Rate per day of space:' %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+</div>
