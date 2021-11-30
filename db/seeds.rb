@@ -9,7 +9,10 @@
 require 'faker'
 
 5.times do
-  user = User.create!(email: Faker::Internet.email, password: rand(100_000..999_999))
+  user = User.create!(email: Faker::Internet.email,
+                      password: rand(100_000..999_999),
+                      first_name: Faker::Name.first_name,
+                      last_name: Faker::Name.last_name)
   2.times do
     user.listings.create!(
       name: Faker::Mountain.name,
