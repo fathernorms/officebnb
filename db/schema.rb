@@ -10,17 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2021_11_29_134615) do
-=======
 ActiveRecord::Schema.define(version: 2021_11_30_100430) do
->>>>>>> bcc06b12636be4a78e82f6ead83a48280f17cef4
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-<<<<<<< HEAD
-=======
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -49,7 +43,6 @@ ActiveRecord::Schema.define(version: 2021_11_30_100430) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
->>>>>>> bcc06b12636be4a78e82f6ead83a48280f17cef4
   create_table "bookings", force: :cascade do |t|
     t.integer "start_date"
     t.integer "end_date"
@@ -91,11 +84,8 @@ ActiveRecord::Schema.define(version: 2021_11_30_100430) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-<<<<<<< HEAD
-=======
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
->>>>>>> bcc06b12636be4a78e82f6ead83a48280f17cef4
   add_foreign_key "bookings", "listings"
   add_foreign_key "bookings", "users"
   add_foreign_key "listings", "users"
