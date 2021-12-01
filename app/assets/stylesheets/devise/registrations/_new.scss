@@ -1,16 +1,16 @@
 
-.sign_up {
+.user_form {
   display: flex;
   flex-direction: row;
   margin-top: 30px;
   border: 1px solid lightgray;
   border-radius: 25px;
-  background-color: white;
-  box-shadow: 10px 10px 5px lightgray
+  background-color:rgb(252,253,255);
+  box-shadow: 10px 10px 5px lightgray;
 }
 
 
-.reg_image {
+.form_image {
   background-image: url(https://images.unsplash.com/photo-1498569026542-39c64353e401?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80);
   background-repeat: no-repeat;
   background-size: cover;
