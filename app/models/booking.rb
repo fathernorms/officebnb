@@ -2,7 +2,7 @@ class Booking < ApplicationRecord
   # Associations
   belongs_to :user
   belongs_to :listing
-  has_many :reviews
+  has_one :review
 
   # Validations
   validates :start_date, :end_date, presence: true
