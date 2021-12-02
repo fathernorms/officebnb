@@ -36,4 +36,11 @@
       <p><%= @listing.description %></p>
     </div>
   </div>
+  <div class="container">
+    <h3 id="date-select-label">Please select a start date:</h3>
+    <div id="calendar">
+    </div>
+  </div>
 </div>
+
+<%= javascript_pack_tag 'fullcalendar/index.js' %>
