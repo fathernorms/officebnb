@@ -22,9 +22,11 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
+gem "simple_calendar", "~> 2.4"
+
+
 gem 'cloudinary', '~> 1.16.0'
 
-gem 'dotenv-rails', groups: [:development, :test]
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
