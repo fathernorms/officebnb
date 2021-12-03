@@ -16,7 +16,7 @@
     </div>
   </div>
   <div class="container cb">
-    <% if @listing.photos %>
+    <% if @listing.photos.first.key %>
       <div class="row photos">
         <%= render "photos", listing: @listing %>
       </div>
