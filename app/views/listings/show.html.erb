@@ -16,7 +16,7 @@
     </div>
   </div>
   <div class="container cb">
-    <% if @listing.photos.first.key %>
+    <% if @listing.photos.first %>
       <div class="row photos">
         <%= render "photos", listing: @listing %>
       </div>
@@ -37,9 +37,9 @@
       <div>
         <% if current_user.photo.key %>
             <%= cl_image_tag current_user.photo.key, class: "avatar" %>
-          <% else %>
+        <% else %>
             <%= image_tag "default_user.png", class: "avatar" %>
-          <% end %>
+        <% end %>
       </div>
     </div>
     <div class="py-2">
