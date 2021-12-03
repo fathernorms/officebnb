@@ -1,0 +1,47 @@
+<% case listing.photos.length %>
+  <% when 2 %>
+    <div class="col-sm-6 photo main-c p-0">
+      <%= cl_image_tag listing.photos.first.key, height: 400, crop: :fill %>
+    </div>
+    <div class="col-sm-6 photo pl-3 half-c">
+      <%= cl_image_tag listing.photos.last.key, height: 400, crop: :fill %>
+    </div>
+  <% when (3..4) %>
+    <div class="col-sm-8 photo main-c p-0">
+      <%= cl_image_tag listing.photos.first.key, height: 400, crop: :fill %>
+    </div>
+    <div class="col-sm-4">
+      <div class="row">
+        <div class="col-sm-12 photo top-c">
+          <%= cl_image_tag listing.photos[1].key, height: 200, crop: :fill %>
+        </div>
+        <div class="col-sm-12 photo bottom btm-c">
+          <%= cl_image_tag listing.photos.last.key, height: 200, crop: :fill %>
+        </div>
+      </div>
+    </div>
+  <% when (5..) %>
+    <div class="col-sm-6 photo p-0 main-c">
+      <%= cl_image_tag listing.photos.first.key, height: 400, crop: :fill %>
+    </div>
+    <div class="col-sm-3 pl-4">
+      <div class="row">
+        <div class="col-sm-12 photo p-0">
+            <%= cl_image_tag listing.photos[1].key, height: 200, crop: :fill %>
+          </div>
+          <div class="col-sm-12 photo p-0 bottom">
+            <%= cl_image_tag listing.photos[2].key, height: 200, crop: :fill %>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-3 pl-4">
+      <div class="row">
+          <div class="col-sm-12 photo p-0 top-c">
+            <%= cl_image_tag listing.photos[3].key, height: 200, crop: :fill %>
+          </div>
+          <div class="col-sm-12 photo p-0 bottom btm-c">
+            <%= cl_image_tag listing.photos[4].key, height: 200, crop: :fill %>
+          </div>
+      </div>
+    </div>
+<% end %>
