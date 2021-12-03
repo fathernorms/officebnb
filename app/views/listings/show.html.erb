@@ -35,7 +35,7 @@
         </p>
       </div>
       <div>
-        <% if current_user.photo.key %>
+        <% if @listing.user.photo.key %>
             <%= cl_image_tag current_user.photo.key, class: "avatar" %>
         <% else %>
             <%= image_tag "default_user.png", class: "avatar" %>
