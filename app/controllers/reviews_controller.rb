@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-
   # NEW
   def new
     @review = Review.new
@@ -31,5 +30,10 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     @review.destroy
     # Implement redirect logic
+  end
+
+  # Strong Params
+  def review_params
+    params.require(:review).permit(:user_review, :user_rating, :owner_review, :owner_rating)
   end
 end
