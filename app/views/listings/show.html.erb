@@ -42,15 +42,24 @@
         <% end %>
       </div>
     </div>
-    <div class="py-2">
+    <div class="py-2 border-bottom">
       <p><%= @listing.description %></p>
     </div>
   </div>
   <div class="container">
-    <h3 id="date-select-label">Please select a start date:</h3>
-    <div id="calendar">
+    <div>
+      <h3 id="date-select-label">Please select a start date:</h3>
+      <div id="calendar">
+      </div>
     </div>
   </div>
+  <div id="map"
+    class= "mt-5"
+    style="width: 75%; height: 600px; margin: 0 auto;"
+    data-markers="<%= @marker.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+
+    </div>
 </div>
 
 <%= javascript_pack_tag 'fullcalendar/index' %>

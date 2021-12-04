@@ -7,4 +7,7 @@ class Listing < ApplicationRecord
   validates :description, presence: true, length: { maximum: 300 }
   validates :capacity, presence: true, numericality: { only_integer: true }
   validates :rate_per_day, presence: true, numericality: true
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end
