@@ -46,11 +46,19 @@
       <p><%= @listing.description %></p>
     </div>
   </div>
-  <div class="container">
+  <div class="container d-flex flex-row justify-content-around align-items-center">
     <div>
       <h3 id="date-select-label">Please select a start date:</h3>
       <div id="calendar">
       </div>
+    </div>
+    <div id="booking-form">
+      <%= simple_form_for [@listing, @booking] do |f| %>
+        <%= f.input :start_date, as: :date, HTML5: true %>
+        <%= f.input :end_date, as: :date, HTML5: true %>
+        <%= f.input :guests, collection: 1..@listing.capacity %>
+        <%= f.button :submit %>
+      <% end %>
     </div>
   </div>
   <div id="map"

@@ -36,6 +36,7 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id])
     @marker = [{ lat: @listing.latitude, lng: @listing.longitude }]
+    @booking = current_user.bookings.build(listing: @listing)
   end
 
   def destroy
