@@ -56,7 +56,7 @@
       <%= simple_form_for [@listing, @booking] do |f| %>
         <%= f.input :start_date, as: :date, HTML5: true %>
         <%= f.input :end_date, as: :date, HTML5: true %>
-        <%# f.input :guests, collection: 1..@listing.capacity %>
+        <%= f.input :guests, collection: 1..@listing.capacity %>
         <%= f.button :submit %>
       <% end %>
     </div>
