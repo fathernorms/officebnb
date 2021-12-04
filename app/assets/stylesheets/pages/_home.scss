@@ -35,3 +35,9 @@ rgba(50, 58, 63, 0.493) 0%, rgba(42, 46, 49, 0.6) 50%), asset-url('banner-image.
 .btn {
   border-radius: 10px;
 }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
