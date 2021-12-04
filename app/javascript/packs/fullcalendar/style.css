@@ -6,6 +6,6 @@ body {
 }
 
 #calendar {
-  max-width: 900px;
-  margin: 0 auto;
+  max-width: 400px;
+  margin: 0;
 }
