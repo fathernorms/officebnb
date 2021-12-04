@@ -1,6 +1,7 @@
 class Listing < ApplicationRecord
   belongs_to :user
   has_many_attached :photos
+  has_many :bookings
 
   validates :name, presence: true, uniqueness: true
   validates :address, presence: true
