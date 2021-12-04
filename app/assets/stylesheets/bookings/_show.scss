@@ -1,0 +1,22 @@
+.container-booking {
+	display: flex;
+	justify-content: space-between;
+	overflow: hidden;
+	margin: auto;
+  width: 50%;
+  padding: 10px;
+  border-radius: 30px;
+  border: 1px solid lightgrey;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+}
+
+.container-booking .card-user {
+	position: relative;
+}
+
+.card-user .card-pay {
+	position: absolute;
+	right: 16px;
+	top: -20px;
+	width: 60px;
+}
