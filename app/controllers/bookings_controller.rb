@@ -13,8 +13,10 @@ class BookingsController < ApplicationController
     @listing = Listing.find(params[:listing_id])
     @booking.listing = @listing
     @booking.user = current_user
+    @booking.start_date = 20211204 # to be changed
+    @booking.end_date = 20211210  # to be changed
     @booking.save
-    redirect_to listing_path(@listing)
+    redirect_to booking_path(@booking)
   end
 
   def edit
