@@ -26,12 +26,18 @@
 .card-info {
   position: absolute;
   left: 10px;
+  width: 55%;
 }
 
 .card-info h5 {
   font-size: 14px;
   font-weight: bold;
   color: black;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
 }
 
 .card-info p {
