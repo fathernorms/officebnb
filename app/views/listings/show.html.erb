@@ -48,7 +48,7 @@
   </div>
 
   <div class="container d-flex flex-row justify-content-around align-items-center">
-    <div class="col-6">
+    <div id="calendar-cont" class="col-6">
       <h3 id="date-select-label">Please select a start date:</h3>
       <div id="calendar">
       </div>
@@ -56,8 +56,8 @@
   <div class="booking mb-2 col-6">
     <div id="booking-form">
       <%= simple_form_for [@listing, @booking] do |f| %>
-        <%= f.input :start_date, as: :date, HTML5: true %>
-        <%= f.input :end_date, as: :date, HTML5: true %>
+        <%= f.input :start_date, as: :date, html5: true %>
+        <%= f.input :end_date, as: :date, html5: true %>
         <%= f.input :guests, collection: 1..@listing.capacity %>
         <%= f.button :submit, class:"btn btn-success btn-block" %>
       <% end %>

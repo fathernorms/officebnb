@@ -1,5 +1,86 @@
-<%= @user.first_name %>
-<%= @user.last_name %>
+<div class="container mt-4" data-controller="tab">
+  <h2 class="mb-4">Bookings</h2>
+  <div class="tabs mb-0">
+    <div class="tablinks active" id="btn-upcoming" data-action="click->tab#displayUpcoming">Upcoming</div>
+    <div class="tablinks" id="btn-past" data-action="click->tab#displayPast">Past</div>
+  </div>
 
-<%= @user.listings.all %>
-<%= @user.bookings.all %>
+
+  <div class="tabcontent m-0 p-0" id="upcoming" data-tab-target="tabcontent" >
+    <% if @upcoming.length > 0 %>
+      <% @upcoming.each do |u| %>
+        <div class="m-0 d-flex flex-row justify-content-between booking">
+          <div class="p-3">
+            <%= link_to(u.listing, class: "text-decoration-none") do %>
+              <h4 class="m-0 p-0"><%= u.listing.name %></h4>
+            <% end %>
+            <p class="m-0 p-0 pt-2 text-secondary"><%= "#{u.start_date} - #{u.end_date}" %></p>
+          </div>
+          <div class="d-flex align-items-center mr-4">
+            <% if u.booking_status == "PENDING" %>
+              <%= link_to(u, class: "text-decoration-none") do %>
+                <div class="status pending d-flex align-items-center">
+                  <i class="ml-3 fas fa-seedling"></i>
+                  <div class="w-100 d-flex align-items-center justify-content-center">
+                    <%= u.booking_status %>
+                  </div>
+                </div>
+              <% end %>
+            <% else %>
+              <%= link_to(u, class: "text-decoration-none") do %>
+                <div class="status confirmed d-flex align-items-center">
+                  <i class="ml-3 fas fa-check"></i>
+                  <div class="w-100 d-flex align-items-center justify-content-center">
+                    <%= u.booking_status %>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <p class="py-3">When you’re ready to start planning your next trip, we’re here to help.</p>
+      <img src="https://images.unsplash.com/photo-1428908728789-d2de25dbd4e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
+    <% end %>
+  </div>
+  <div class="tabcontent m-0 p-0" id="past" data-tab-target="tabcontent" >
+        <% if @past.length > 0 %>
+      <% @past.each do |u| %>
+        <div class="m-0 d-flex flex-row justify-content-between booking">
+          <div class="p-3">
+            <%= link_to(u.listing, class: "text-decoration-none") do %>
+              <h4 class="m-0 p-0"><%= u.listing.name %></h4>
+            <% end %>
+            <p class="m-0 p-0 pt-2 text-secondary"><%= "#{u.start_date} - #{u.end_date}" %></p>
+          </div>
+          <div class="d-flex align-items-center mr-4">
+            <% if !u.review %>
+              <%# TODO: CHANGE LINK TO REVIEW FORM %>
+              <%= link_to(u, class: "text-decoration-none") do %>
+                <div class="status pending review d-flex align-items-center">
+                  <i class="ml-3 fas fa-seedling"></i>
+                  <div class="w-100 d-flex align-items-center justify-content-center">
+                    Leave a review
+                  </div>
+                </div>
+              <% end %>
+            <% else %>
+              <%= link_to(u, class: "text-decoration-none") do %>
+                <div class="status confirmed review d-flex align-items-center">
+                  <i class="ml-3 fas fa-check"></i>
+                  <div class="w-100 d-flex align-items-center justify-content-center">
+                    Review completed
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <p class="py-3">You don’t have any past trips yet – but when you do, you’ll find them here.</p>
+      <img src="https://images.unsplash.com/photo-1428908728789-d2de25dbd4e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
+    <% end %>
+  </div>
+</div>
