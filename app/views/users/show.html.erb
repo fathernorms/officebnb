@@ -7,7 +7,7 @@
 
 
   <div class="tabcontent m-0 p-0" id="upcoming" data-tab-target="tabcontent" >
-    <% if @upcoming %>
+    <% if @upcoming.length > 0 %>
       <% @upcoming.each do |u| %>
         <div class="m-0 d-flex flex-row justify-content-between booking">
           <div class="p-3">
@@ -40,12 +40,12 @@
         </div>
       <% end %>
     <% else %>
-      <p>When you’re ready to start planning your next trip, we’re here to help.</p>
+      <p class="py-3">When you’re ready to start planning your next trip, we’re here to help.</p>
       <img src="https://images.unsplash.com/photo-1428908728789-d2de25dbd4e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
     <% end %>
   </div>
-  <div class="tabcontent" id="past" data-tab-target="tabcontent" >
-        <% if @past %>
+  <div class="tabcontent m-0 p-0" id="past" data-tab-target="tabcontent" >
+        <% if @past.length > 0 %>
       <% @past.each do |u| %>
         <div class="d-flex flex-row justify-content-between booking">
           <div class="p-2">
@@ -79,8 +79,8 @@
         </div>
       <% end %>
     <% else %>
-      <p>You don’t have any past trips yet – but when you do, you’ll find them here.</p>
-      <img src="https://images.unsplash.com/photo-1525722752835-fdf3d77e9d03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=962&q=80" alt="">
+      <p class="py-3">You don’t have any past trips yet – but when you do, you’ll find them here.</p>
+      <img src="https://images.unsplash.com/photo-1428908728789-d2de25dbd4e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
     <% end %>
   </div>
 </div>
