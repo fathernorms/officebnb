@@ -6,7 +6,7 @@ class Booking < ApplicationRecord
 
   # Validations
   validates :start_date, :end_date, presence: true
-  validates :booking_status, inclusion: { in: ["pending", "confirmed", "rejected"] }
+  validates :booking_status, inclusion: { in: ["PENDING", "CONFIRMED", "COMPLETED", "CANCELLED"] }
   validate :end_date_after_start_date
 
   private
