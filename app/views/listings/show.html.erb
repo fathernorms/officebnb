@@ -48,12 +48,13 @@
   </div>
 
   <div class="container d-flex flex-row justify-content-around align-items-center">
-    <div id="calendar-cont" class="col-6">
+   <div class="row">
+    <div id="calendar-cont">
       <h3 id="date-select-label">Please select a start date:</h3>
       <div id="calendar">
       </div>
     </div>
-  <div class="booking mb-2 col-6">
+  <div class="booking my-3">
     <div id="booking-form">
       <%= simple_form_for [@listing, @booking] do |f| %>
         <%= f.input :start_date, as: :date, html5: true %>
@@ -62,6 +63,7 @@
         <%= f.button :submit, class:"btn btn-success btn-block" %>
       <% end %>
     </div>
+   </div>
   </div>
   </div>
 
