@@ -47,8 +47,8 @@
   <div class="tabcontent m-0 p-0" id="past" data-tab-target="tabcontent" >
         <% if @past.length > 0 %>
       <% @past.each do |u| %>
-        <div class="d-flex flex-row justify-content-between booking">
-          <div class="p-2">
+        <div class="m-0 d-flex flex-row justify-content-between booking">
+          <div class="p-3">
             <%= link_to(u.listing, class: "text-decoration-none") do %>
               <h4 class="m-0 p-0"><%= u.listing.name %></h4>
             <% end %>
