@@ -14,3 +14,9 @@
 @import "devise/index";
 @import "listings/index";
 @import "users/index";
+
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}

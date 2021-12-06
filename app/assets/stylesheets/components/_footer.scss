@@ -1,14 +1,14 @@
-footer {
+#footer {
   display: flex;
   background-color: white;
   justify-content: center;
   height: 70px;
   align-items: center;
-
+  margin-top: auto;
+  bottom: 0;
   width: 100%;
-  margin-top: 30px;
 }
 
-footer .fa-star {
+#footer .fa-star {
   color: yellowgreen;
 }
