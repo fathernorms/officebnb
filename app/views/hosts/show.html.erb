@@ -29,12 +29,14 @@
           </div>
           <div class="d-flex align-items-center mr-4 review-details">
             <% if u.booking_status == "PENDING" %>
+              <%= link_to(edit_host_path(u), class: "text-decoration-none") do %>
                 <div class="status pending d-flex align-items-center">
                   <i class="ml-3 fas fa-seedling"></i>
                   <div class="w-100 d-flex align-items-center justify-content-center">
                     <%= u.booking_status %>
                   </div>
                 </div>
+              <% end %>
             <% else %>
               <%= link_to(u, class: "text-decoration-none") do %>
                 <div class="status confirmed d-flex align-items-center">

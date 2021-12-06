@@ -30,5 +30,5 @@ import { initOpenModal } from "../plugins/init_openmodal"
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   initMapbox();
-  initOpenModal();
+  // initOpenModal();
 });

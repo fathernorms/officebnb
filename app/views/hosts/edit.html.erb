@@ -1,0 +1,11 @@
+<%= simple_form_for @booking do |f| %>
+  <%= f.input :booking_status,
+  collection:
+  if @booking.booking_status == "PENDING"
+    ["CONFIRMED", "CANCELLED"]
+  else
+    ["COMPLETED", "CANCELLED"]
+  end,
+  label: false, selected: @booking.booking_status %>
+  <%= f.button :submit, class: "status pending" %>
+<% end %>
