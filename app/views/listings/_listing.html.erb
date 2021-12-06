@@ -1,14 +1,14 @@
-<div class="col-sm-3 my-2">
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 my-2">
   <%= link_to listing_path(listing), data: { turbolinks: false }, class: 'text-decoration-none' do %>
-    <div class="card h-100">
+    <div class="card-container">
       <img class="card-img-top" src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80" alt="Card image cap">
       <div class="card-body">
         <div class="card-info">
-            <h5 class="card-title text-dark"><%= listing.name %></h5>
-            <p class="card-text text-secondary">Guests: <%= listing.capacity %></p>
+            <h5><%= listing.address %></h5>
+            <p class="text-secondary">Guests: <%= listing.capacity %></p>
         </div>
         <div class="card-price">
-            <p class="card-text text-secondary">S$<%= listing.rate_per_day %>/day</p>
+            <h2 class="text-secondary">S$<%= listing.rate_per_day %>/day</h2>
         </div>
         </div>
     </div>
