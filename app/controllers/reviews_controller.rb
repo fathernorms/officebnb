@@ -2,30 +2,31 @@ class ReviewsController < ApplicationController
   # NEW
   def new
     @review = Review.new
+    @booking = Booking.find(params[:booking_id])
   end
 
   # CREATE
   def create
     @review = Review.new(review_params)
-    @booking = List.find(params[:booking_id])
+    @booking = Booking.find(params[:booking_id])
     @review.booking = @booking
-    @review.save
-    # Implement redirect logic
+    @review.save!
+    redirect_to booking_path(@booking)
   end
 
-  # EDIT
+  # EDIT X NOT NEEDED
   def edit
     @review = Review.find(params[:id])
   end
 
-  # UPDATE
+  # UPDATE X NOT NEEDED
   def update
     @review = Review.find(params[:id])
     @review.update(review_params)
     # Implement redirect logic
   end
 
-  # DESTROY
+  # DESTROY X NOT NEEDED
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
@@ -34,6 +35,6 @@ class ReviewsController < ApplicationController
 
   # Strong Params
   def review_params
-    params.require(:review).permit(:user_review, :user_rating, :owner_review, :owner_rating)
+    params.require(:review).permit(:user_review, :user_rating)
   end
 end

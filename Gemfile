@@ -24,12 +24,15 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 
 gem "simple_calendar", "~> 2.4"
 
-
 gem 'cloudinary', '~> 1.16.0'
 
 gem 'geocoder'
 
 gem 'stimulus-rails'
+
+gem 'bootstrap'
+
+gem 'popper_js'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

@@ -6,7 +6,7 @@ export default class extends Controller {
 
   displayUpcoming() {
     this.tabcontentTargets.forEach(tab => {
-      tab.style.display = "none"
+    tab.style.display = "none"
     });
     document.getElementById("btn-upcoming").classList.add('active');
     document.getElementById("btn-past").classList.remove("active");
@@ -15,7 +15,7 @@ export default class extends Controller {
 
   displayPast() {
     this.tabcontentTargets.forEach(tab => {
-      tab.style.display = "none"
+    tab.style.display = "none"
     });
     document.getElementById("btn-upcoming").classList.remove("active");
     document.getElementById("btn-past").classList.add("active");
