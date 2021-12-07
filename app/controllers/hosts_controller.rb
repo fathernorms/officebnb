@@ -8,4 +8,9 @@ class HostsController < ApplicationController
   def edit
     @booking = Booking.find(params[:id])
   end
+
+  def hello
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_status: "CANCELLED")
+  end
 end

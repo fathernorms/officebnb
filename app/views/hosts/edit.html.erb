@@ -9,3 +9,5 @@
   label: false, selected: @booking.booking_status %>
   <%= f.button :submit, class: "status pending" %>
 <% end %>
+
+<%= button_to 'Confirm', confirm_booking_path(@booking) %>

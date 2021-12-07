@@ -30,6 +30,11 @@ class BookingsController < ApplicationController
     redirect_to booking_path(@booking)
   end
 
+  def confirm
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_status: "CONFIRMED")
+  end
+
   private
 
   def booking_params

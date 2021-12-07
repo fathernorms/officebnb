@@ -1,0 +1,10 @@
+.baction:not(.initial) {
+    display: none;
+}
+
+.reservation img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  vertical-align: middle;
+}

@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   resources :reviews, only: [ :edit, :update, :destroy ]
   resources :users, only: :show
   resources :hosts, only: [ :show, :edit, :update ]
+
+  post '/confirm/:id', to: 'bookings#confirm', as: 'confirm_booking'
 end
