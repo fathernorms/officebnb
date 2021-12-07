@@ -1,5 +1,5 @@
 <div class="container mt-4" data-controller="tab">
-  <h2 class="mb-4">Bookings</h2>
+  <h2 class="mb-4">Host</h2>
   <div class="tabs mb-0">
     <div class="tablinks active" id="btn-upcoming" data-action="click->tab#displayUpcoming">Upcoming</div>
     <div class="tablinks" id="btn-past" data-action="click->tab#displayPast">Past</div>
@@ -10,9 +10,7 @@
       <% @upcoming.each do |u| %>
         <div class="m-0 py-3 d-flex flex-column justify-content-between reservation" data-bookingId="<%= u.id %>">
           <div class="m-0 pl-3 mt-2">
-              <%= link_to(u.listing, class: "text-decoration-none") do %>
-                <h4 class="m-0 p-0"><%= u.listing.name %></h4>
-              <% end %>
+                <h4 class="m-0 p-0"><%= "Booking ##{u.id}" %></h4>
           </div>
           <div class="p-0 mb-3 d-flex flex-row justify-content-between">
             <div class = "d-flex flex-row user-info m-0">
@@ -24,7 +22,6 @@
                 <% end %>
               </div>
               <div class="pl-4">
-                <p class="m-0 p-0 pt-2 text-secondary"><%= "Booking ID: #{u.id}" %></p>
                 <p class="m-0 p-0 pt-2 text-secondary">
                 <%= "Booking by: #{u.user.first_name} #{u.user.last_name}" %>
                 </p>
@@ -75,9 +72,7 @@
       <% @past.each do |u| %>
         <div class="m-0 py-3 d-flex flex-column justify-content-between reservation" data-bookingId="<%= u.id %>">
           <div class="m-0 pl-3 mt-2">
-              <%= link_to(u.listing, class: "text-decoration-none") do %>
-                <h4 class="m-0 p-0"><%= u.listing.name %></h4>
-              <% end %>
+                <h4 class="m-0 p-0"><%= "Booking ##{u.id}" %></h4>
           </div>
           <div class="p-0 mb-3 d-flex flex-row justify-content-between">
             <div class = "d-flex flex-row user-info m-0">
@@ -89,11 +84,9 @@
                 <% end %>
               </div>
               <div class="pl-4">
-                <p class="m-0 p-0 pt-2 text-secondary"><%= "Booking ID: #{u.id}" %></p>
                 <p class="m-0 p-0 pt-2 text-secondary">
                 <%= "Booking by: #{u.user.first_name} #{u.user.last_name}" %>
                 </p>
-                <p class="m-0 p-0 pt-2 text-secondary"><%= "Duration: #{u.start_date} to #{u.end_date}" %></p>
                 <p class="m-0 p-0 pt-2 text-secondary"><%= "Number Of Guests: #{u.guests}" %></p>
                 <p class="m-0 p-0 pt-2 text-secondary"><%= "Total Cost: #{u.cost}" %></p>
               </div>
