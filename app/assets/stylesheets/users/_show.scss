@@ -79,6 +79,12 @@
   color: white;
 }
 
+.status.cancelled {
+  border: 1px solid red;
+  background-color: white;
+  color: red;
+}
+
 #upcoming {
   display: block;
 }

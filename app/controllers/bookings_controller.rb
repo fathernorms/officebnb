@@ -33,6 +33,13 @@ class BookingsController < ApplicationController
   def confirm
     @booking = Booking.find(params[:id])
     @booking.update(booking_status: "CONFIRMED")
+    redirect_to host_path(@booking.listing.user)
+  end
+
+  def cancel
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_status: "CANCELLED")
+    redirect_to host_path(@booking.listing.user)
   end
 
   private

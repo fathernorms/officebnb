@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :hosts, only: [ :show, :edit, :update ]
 
   post '/confirm/:id', to: 'bookings#confirm', as: 'confirm_booking'
+  post '/cancel/:id', to: 'bookings#cancel', as: 'cancel_booking'
 end
