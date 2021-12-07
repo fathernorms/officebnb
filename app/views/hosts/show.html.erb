@@ -16,9 +16,9 @@
             <div class = "d-flex flex-row user-info m-0">
               <div class="d-flex align-items-center justify-content-center pl-3">
                 <% if u.user.photo.key %>
-                  <%= cl_image_tag u.user.photo.key, class: "avatar m-0" %>
+                  <%= cl_image_tag u.user.photo.key, class: "avatar-large m-0" %>
                 <% else %>
-                  <%= image_tag "default_user.png", class: "avatar m-0"%>
+                  <%= image_tag "default_user.png", class: "avatar-large m-0"%>
                 <% end %>
               </div>
               <div class="pl-4">
@@ -61,8 +61,10 @@
         </div>
       <% end %>
     <% else %>
-      <p class="py-3">When you’re ready to start planning your next trip, we’re here to help.</p>
-      <img src="https://images.unsplash.com/photo-1428908728789-d2de25dbd4e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
+      <div class="blankboard">
+        <p class="py-3">When you’re ready to start planning your next trip, we’re here to help.</p>
+        <img src="https://images.unsplash.com/photo-1428908728789-d2de25dbd4e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
+      </div>
     <% end %>
   </div>
 
@@ -78,9 +80,9 @@
             <div class = "d-flex flex-row user-info m-0">
               <div class="d-flex align-items-center justify-content-center pl-3">
                 <% if u.user.photo.key %>
-                  <%= cl_image_tag u.user.photo.key, class: "avatar m-0" %>
+                  <%= cl_image_tag u.user.photo.key, class: "avatar-large m-0" %>
                 <% else %>
-                  <%= image_tag "default_user.png", class: "avatar m-0"%>
+                  <%= image_tag "default_user.png", class: "avatar-large m-0"%>
                 <% end %>
               </div>
               <div class="pl-4">
@@ -113,8 +115,10 @@
         </div>
       <% end %>
     <% else %>
-      <p class="py-3">When you’re ready to start planning your next trip, we’re here to help.</p>
-      <img src="https://images.unsplash.com/photo-1428908728789-d2de25dbd4e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
+      <div class="blankboard">
+        <p class="py-3">When you’re ready to start planning your next trip, we’re here to help.</p>
+        <img src="https://images.unsplash.com/photo-1428908728789-d2de25dbd4e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
+      </div>
     <% end %>
   </div>
 </div>
