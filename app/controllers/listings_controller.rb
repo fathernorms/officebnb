@@ -1,7 +1,14 @@
 class ListingsController < ApplicationController
 
   def index
-    @listings = Listing.all
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR address ILIKE :query"
+      @listings = Listing.where(sql_query, query: "%#{params[:query]}%")
+    elsif params[:guest_number].present?
+      @listings = Listing.where("capacity >= ?", params[:guest_number])
+    else
+      @listings = Listing.all
+    end
   end
 
   def new

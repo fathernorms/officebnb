@@ -3,20 +3,13 @@
     <h1>OfficeBnB</h1>
     <p>Find me a place to work in peace!</p>
 
-    <div class="form-group ml-2">
-    <form action="/listings" class="form-inline">
-      <input type="text" class="form-control border-radius ml-2" placeholder="Orchard">
-      <input type="date" name="start-date" class="form-control border-radius ml-2" placeholder="Start date">
-      <input type="date" name="end-date" class="form-control border-radius ml-2" placeholder="End date">
-      <select name="" id="" class="form-control border-radius ml-2">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
-      <input type="submit" class="btn btn-success ml-2" value="Search">
-    </form>
-  </div>
+    <%= form_tag listings_path, method: :get, class: "form-inline ml-2" do %>
+    <%= text_field_tag :query, params[:query], class: "form-control text-center border-radius ml-2", placeholder: "Find a place!" %>
+    <%= date_field nil, nil, class: "form-control border-radius ml-2", placeholder: "Start date" %>
+    <%= date_field nil, nil, class: "form-control border-radius ml-2", placeholder: "End date" %>
+    <%= select_tag :guest_number, options_for_select(1..10), class: "form-control border-radius ml-2", prompt: "Guests" %>
+    <%= submit_tag "Search", class: "btn btn-success ml-2" %>
+    <% end %>
+
   </div>
 </div>
