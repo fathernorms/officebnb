@@ -24,9 +24,13 @@ import "bootstrap";
 // Internal imports, e.g:
 import { initMapbox } from "../plugins/init_mapbox"
 import "../controllers/index"
+import { initOpenModal } from "../plugins/init_openmodal"
+import { init_display_action } from "../plugins/init_display_action"
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   initMapbox();
+  // initOpenModal();
+  init_display_action();
 });

@@ -5,7 +5,7 @@
     <%= f.input :description, as: :text, label: 'Description of space:' %>
     <%= f.input :capacity, label: 'Capacity of space:' %>
     <%= f.input :rate_per_day, label: 'Rate per day of space:' %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true }, label: 'Photos of your space: ' %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true, max: 2 }, label: 'Photos of your space: ' %>
     <%= f.button :submit, class: "btn btn-primary" %>
   <% end %>
 </div>

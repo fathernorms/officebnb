@@ -10,4 +10,9 @@ Rails.application.routes.draw do
   resources :bookings, only: [ :show, :edit, :update ]
   resources :reviews, only: [ :edit, :update, :destroy ]
   resources :users, only: :show
+  resources :hosts, only: [ :show, :edit, :update ]
+
+  post '/confirm/:id', to: 'bookings#confirm', as: 'confirm_booking'
+  post '/cancel/:id', to: 'bookings#cancel', as: 'cancel_booking'
+  post '/complete/:id', to: 'bookings#complete', as: 'complete_booking'
 end

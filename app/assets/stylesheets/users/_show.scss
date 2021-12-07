@@ -79,14 +79,20 @@
   color: white;
 }
 
+.status.cancelled {
+  border: 1px solid red;
+  background-color: white;
+  color: red;
+}
+
 #upcoming {
   display: block;
 }
 
-.booking {
+.reservation {
   transition: ease 0.3s;
 }
 
-.booking:hover {
+.reservation:hover {
   background-color: white;
 }
