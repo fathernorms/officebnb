@@ -1,15 +1,4 @@
 <div class="container mt-4" data-controller="tab">
-  <!-- The Modal -->
-  <div id="myModal" class="modal">
-
-    <!-- Modal content -->
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <p>Some text in the Modal..</p>
-    </div>
-
-  </div>
-
   <h2 class="mb-4">Bookings</h2>
   <div class="tabs mb-0">
     <div class="tablinks active" id="btn-upcoming" data-action="click->tab#displayUpcoming">Upcoming</div>
@@ -39,36 +28,37 @@
                 <p class="m-0 p-0 pt-2 text-secondary">
                 <%= "Booking by: #{u.user.first_name} #{u.user.last_name}" %>
                 </p>
+                <p class="m-0 p-0 pt-2 text-secondary"><%= "Duration: #{u.start_date} to #{u.end_date}" %></p>
                 <p class="m-0 p-0 pt-2 text-secondary"><%= "Number Of Guests: #{u.guests}" %></p>
                 <p class="m-0 p-0 pt-2 text-secondary"><%= "Total Cost: #{u.cost}" %></p>
               </div>
             </div>
             <div class="d-flex align-items-center mr-4 review-details">
               <% if u.booking_status == "PENDING" %>
-                <%= link_to(edit_host_path(u), class: "text-decoration-none") do %>
                 <div class="status pending d-flex align-items-center">
                   <i class="ml-3 fas fa-seedling"></i>
                   <div class="w-100 d-flex align-items-center justify-content-center">
                     <%= u.booking_status %>
                   </div>
                 </div>
-              <% end %>
             <% else %>
-              <%= link_to(u, class: "text-decoration-none") do %>
                 <div class="status confirmed d-flex align-items-center">
                   <i class="ml-3 fas fa-check"></i>
                   <div class="w-100 d-flex align-items-center justify-content-center">
                     <%= u.booking_status %>
                   </div>
                 </div>
-              <% end %>
             <% end %>
           </div>
         </div>
         <div class="w-100 baction" id="<%= u.id %>">
           <div class="d-flex flex-row w-100 justify-content-center">
-            <%= button_to 'Confirm', confirm_booking_path(u), class: "status confirmed mx-4" %>
-            <%= button_to 'Cancel', cancel_booking_path(u), class: "status cancelled mx-4" %>
+            <% if u.booking_status == "PENDING" %>
+              <%= button_to 'Confirm', confirm_booking_path(u), class: "status confirmed mx-4" %>
+              <%= button_to 'Cancel', cancel_booking_path(u), class: "status cancelled mx-4" %>
+            <% else %>
+              <%= button_to 'Completed', complete_booking_path(u), class: "status confirmed mx-4" %>
+            <% end %>
           </div>
           </div>
         </div>
@@ -81,41 +71,55 @@
 
 
   <div class="tabcontent m-0 p-0" id="past" data-tab-target="tabcontent" >
-        <% if @past.length > 0 %>
+    <% if @past.length > 0 %>
       <% @past.each do |u| %>
-        <div class="m-0 d-flex flex-row justify-content-between reservation">
-          <div class="p-3">
-            <%= link_to(u.listing, class: "text-decoration-none") do %>
-              <h4 class="m-0 p-0"><%= u.listing.name %></h4>
-            <% end %>
-            <p class="m-0 p-0 pt-2 text-secondary"><%= "#{u.start_date} - #{u.end_date}" %></p>
+        <div class="m-0 py-3 d-flex flex-column justify-content-between reservation" data-bookingId="<%= u.id %>">
+          <div class="m-0 pl-3 mt-2">
+              <%= link_to(u.listing, class: "text-decoration-none") do %>
+                <h4 class="m-0 p-0"><%= u.listing.name %></h4>
+              <% end %>
           </div>
-          <div class="d-flex align-items-center mr-4">
-            <% if !u.review %>
-              <%# TODO: CHANGE LINK TO REVIEW FORM %>
-              <%= link_to(u, class: "text-decoration-none") do %>
+          <div class="p-0 mb-3 d-flex flex-row justify-content-between">
+            <div class = "d-flex flex-row user-info m-0">
+              <div class="d-flex align-items-center justify-content-center pl-3">
+                <% if u.user.photo.key %>
+                  <%= cl_image_tag u.user.photo.key, class: "avatar m-0" %>
+                <% else %>
+                  <%= image_tag "default_user.png", class: "avatar m-0"%>
+                <% end %>
+              </div>
+              <div class="pl-4">
+                <p class="m-0 p-0 pt-2 text-secondary"><%= "Booking ID: #{u.id}" %></p>
+                <p class="m-0 p-0 pt-2 text-secondary">
+                <%= "Booking by: #{u.user.first_name} #{u.user.last_name}" %>
+                </p>
+                <p class="m-0 p-0 pt-2 text-secondary"><%= "Duration: #{u.start_date} to #{u.end_date}" %></p>
+                <p class="m-0 p-0 pt-2 text-secondary"><%= "Number Of Guests: #{u.guests}" %></p>
+                <p class="m-0 p-0 pt-2 text-secondary"><%= "Total Cost: #{u.cost}" %></p>
+              </div>
+            </div>
+            <div class="d-flex align-items-center mr-4 review-details">
+              <% if !u.review %>
                 <div class="status pending review d-flex align-items-center">
                   <i class="ml-3 fas fa-seedling"></i>
                   <div class="w-100 d-flex align-items-center justify-content-center">
-                    Leave a review
+                    Pending Review
                   </div>
                 </div>
-              <% end %>
             <% else %>
-              <%= link_to(u, class: "text-decoration-none") do %>
                 <div class="status confirmed review d-flex align-items-center">
                   <i class="ml-3 fas fa-check"></i>
                   <div class="w-100 d-flex align-items-center justify-content-center">
-                    Review completed
+                    Guest Reviewed
                   </div>
                 </div>
-              <% end %>
             <% end %>
           </div>
         </div>
+        </div>
       <% end %>
     <% else %>
-      <p class="py-3">You don’t have any past trips yet – but when you do, you’ll find them here.</p>
+      <p class="py-3">When you’re ready to start planning your next trip, we’re here to help.</p>
       <img src="https://images.unsplash.com/photo-1428908728789-d2de25dbd4e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
     <% end %>
   </div>

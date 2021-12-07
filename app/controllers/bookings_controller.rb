@@ -42,6 +42,12 @@ class BookingsController < ApplicationController
     redirect_to host_path(@booking.listing.user)
   end
 
+  def complete
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_status: "COMPLETED")
+    redirect_to host_path(@booking.listing.user)
+  end
+
   private
 
   def booking_params
