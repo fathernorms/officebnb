@@ -1,2 +1,25 @@
-<%= @booking.start_date %>
-<%= @booking.end_date %>
+<div class ="container-booking">
+  <div class="card-user">
+    <h3> Your Booking Details </h3>
+    <br>
+    <p><strong> Guest Name: </strong></p> 
+    <p><%= @booking.user.first_name %></p> 
+    <p><strong> Date: </strong></p> 
+    <p><%= "#{@booking.start_date} to #{@booking.end_date}" %></p>
+    <p><strong> No. of Guest: </strong></p>
+    <p><%= @booking.guests %> </p>
+    <p><strong> Total Cost: </strong></p>
+    <p><%= @booking.cost %> </p>
+    <p><strong> Booking Status: </strong></p>
+    <span class="badge badge-success"> <%= @booking.booking_status %> </span>
+  </div>
+
+  <div class="listing-details">
+    <h3><%= @booking.listing.name %></h3>
+    <p><%= @booking.listing.address %></p>
+    <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80" class="booking-img" alt="dummy-img">
+    <br>
+    <br>
+    <%= link_to "Back to list", listings_path, class:"btn btn-success btn-block" %>
+  </div>
+</div>
