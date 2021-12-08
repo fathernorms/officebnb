@@ -59,7 +59,7 @@
         <%= f.input :start_date, as: :date, html5: true %>
         <%= f.input :end_date, as: :date, html5: true %>
         <%= f.input :guests, collection: 1..@listing.capacity %>
-        <%= f.button :submit, class:"btn btn-success btn-block" %>
+        <%= f.button :submit, class:"status confirmed w-100" %>
       <% end %>
     </div>
   </div>
