@@ -56,10 +56,10 @@ document.addEventListener("DOMContentLoaded", function () {
           date.style.backgroundColor = "#f4f4f4";
         });
         selectedDates = []
-        event.target.style.backgroundColor = "pink";
+        grid.style.backgroundColor = "pink";
         selectedDates.push(event.target);
       } else {
-          event.target.style.backgroundColor = "pink";
+          grid.style.backgroundColor = "pink";
           selectedDates.push(event.target)
       }
     });

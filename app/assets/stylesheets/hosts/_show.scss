@@ -1,0 +1,14 @@
+.baction {
+  margin-top: 0;
+}
+
+.baction:not(.initial) {
+    display: none;
+}
+
+// .reservation img {
+//   width: 60px;
+//   height: 60px;
+//   border-radius: 50%;
+//   vertical-align: middle;
+// }

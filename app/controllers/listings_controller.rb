@@ -1,7 +1,14 @@
 class ListingsController < ApplicationController
 
   def index
-    @listings = Listing.all
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR address ILIKE :query"
+      @listings = Listing.where(sql_query, query: "%#{params[:query]}%")
+    elsif params[:guest_number].present?
+      @listings = Listing.where("capacity >= ?", params[:guest_number])
+    else
+      @listings = Listing.all
+    end
   end
 
   def new
@@ -36,7 +43,11 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id])
     @marker = [{ lat: @listing.latitude, lng: @listing.longitude }]
-    @booking = current_user.bookings.build(listing: @listing)
+    if current_user
+      @booking = current_user.bookings.build(listing: @listing)
+    else
+      @booking = Booking.new
+    end
   end
 
   def destroy

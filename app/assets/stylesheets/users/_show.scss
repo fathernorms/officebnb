@@ -1,0 +1,98 @@
+.tabs {
+  overflow: hidden;
+  border-bottom: 1px solid lightgrey;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tabs div {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tabs div:hover {
+  background-color: white;
+}
+
+/* Create an active/current tablink class */
+.tabs div.active {
+  font-weight: bold;
+  border-bottom: 2px solid black;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+}
+
+.tabcontent {
+  animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.tabcontent a {
+  color: black;
+}
+
+.blankboard img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  object-position: left bottom;
+  margin-bottom: 20px;
+  border-radius: 12px;
+}
+
+.status {
+  width: 140px;
+  height: 35px;
+  border-radius: 12px;
+  i {
+      width: 20%;
+  }
+}
+
+.status.review {
+  width: 200px;
+}
+
+.status.pending {
+  border: 1px solid lime;
+  background-color: white;
+  color: lime;
+  }
+
+.status.confirmed {
+  border: 1px solid white;
+  background-color: lime;
+  color: white;
+}
+
+.status.cancelled {
+  border: 1px solid red;
+  background-color: white;
+  color: red;
+}
+
+#upcoming {
+  display: block;
+}
+
+.reservation {
+  transition: ease 0.3s;
+}
+
+.reservation:hover {
+  background-color: white;
+}

@@ -13,4 +13,15 @@
 @import "pages/index";
 @import "devise/index";
 @import "listings/index";
+<<<<<<< HEAD
 @import "bookings/index";
+=======
+@import "users/index";
+@import "hosts/index";
+
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+>>>>>>> 488e5a113e84dc53e5ea5856f50aff3df82a36c7
