@@ -2,7 +2,6 @@
   width: 250px;
   border: 1px solid rgba(230,230,230,0.9);
   border-radius: 5px;
-  padding-bottom: 20px;
   background-color: white;
 }
 
@@ -23,14 +22,8 @@
   margin-bottom: 10px;
 }
 
-.card-info {
-  position: absolute;
-  left: 10px;
-  width: 55%;
-}
-
 .card-info h5 {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   color: black;
 
@@ -41,7 +34,7 @@
 }
 
 .card-info p {
-  font-size: 12px;
+  font-size: 10px;
   color: black;
   font-weight: lighter;
 }
