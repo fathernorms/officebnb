@@ -3,6 +3,11 @@ class ReviewsController < ApplicationController
   def new
     @review = Review.new
     @booking = Booking.find(params[:booking_id])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # CREATE
@@ -11,7 +16,7 @@ class ReviewsController < ApplicationController
     @booking = Booking.find(params[:booking_id])
     @review.booking = @booking
     @review.save!
-    redirect_to booking_path(@booking)
+    redirect_to user_path(current_user)
   end
 
   # EDIT X NOT NEEDED

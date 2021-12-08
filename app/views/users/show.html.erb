@@ -45,7 +45,7 @@
     <% end %>
   </div>
 
-  
+
   <div class="tabcontent m-0 p-0" id="past" data-tab-target="tabcontent" >
         <% if @past.length > 0 %>
       <% @past.each do |u| %>
@@ -58,15 +58,19 @@
           </div>
           <div class="d-flex align-items-center mr-4">
             <% if !u.review %>
-              <%# TODO: CHANGE LINK TO REVIEW FORM %>
-              <%= link_to(new_booking_review_path(u), class: "text-decoration-none") do %>
-                <div class="status pending review d-flex align-items-center">
+              <%= link_to(new_booking_review_path(u), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: "text-decoration-none"}) do %>
+                <div class="status pending review d-flex align-items-center"> <%# Review button styling %>
                   <i class="ml-3 fas fa-seedling"></i>
                   <div class="w-100 d-flex align-items-center justify-content-center">
                     Leave a review
                   </div>
                 </div>
               <% end %>
+              <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content"></div>
+                </div>
+              </div>
             <% else %>
               <%= link_to(u, class: "text-decoration-none") do %>
                 <div class="status confirmed review d-flex align-items-center">
