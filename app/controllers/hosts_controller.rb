@@ -4,6 +4,9 @@ class HostsController < ApplicationController
     if @host.listings.length.positive?
       @upcoming = @host.listings.first.bookings.where(booking_status: ["PENDING", "CONFIRMED"])
       @past = @host.listings.first.bookings.where(booking_status: ["COMPLETED", "CANCELLED"])
+    else
+      @upcoming = []
+      @past = []
     end
   end
 
