@@ -1,0 +1,19 @@
+.new-listing {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+  border: 1px solid lightgray;
+  border-radius: 25px;
+  background-color:rgb(252,253,255);
+  box-shadow: 10px 10px 5px lightgray;
+}
+
+.img-form {
+  background-image: url(https://images.unsplash.com/photo-1538506392157-218c11f95129?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=755&q=80);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+  width: 50%;
+  overflow: hidden;
+  border-radius: 0 25px 25px 0 ;
+}

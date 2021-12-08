@@ -26,10 +26,20 @@
 
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+            <%# if current_user.listings.length > 0 %>
+              <%# link_to "My Listing", listing_path(current_user.listings.first), class: "dropdown-item" %>
+            <%# end %>
+            <%# link_to "Edit Listing", edit_listing_path(current_user.listings.first), class: "dropdown-item" %>
+>>>>>>> 938a1fb23c3d4a32f09e858c3413e90c07a0093b
+=======
             <% if current_user.listings.length > 0 %>
               <%= link_to "My Listing", listing_path(current_user.listings.first), class: "dropdown-item" %>
               <%= link_to "Edit Listing", edit_listing_path(current_user.listings.first), class: "dropdown-item" %>
             <% end %>
+>>>>>>> 3ed25bb6b694f0bf007dcfabcb6f176fa44bb12f
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
