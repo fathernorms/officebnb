@@ -13,8 +13,13 @@ class BookingsController < ApplicationController
     @listing = Listing.find(params[:listing_id])
     @booking.listing = @listing
     @booking.user = current_user
-    @booking.start_date = 20211204 # to be changed
-    @booking.end_date = 20211210  # to be changed
+    @booking.start_date = booking_params["start_date(1i)"]+booking_params["start_date(2i)"]+booking_params["start_date(3i)"]
+    @booking.end_date = booking_params["end_date(1i)"]+booking_params["end_date(2i)"]+booking_params["end_date(3i)"]
+    if @booking.start_date && @booking.end_date
+      @booking.cost = (@booking.end_date - @booking.start_date) * @booking.listing.rate_per_day
+    else
+      @booking.cost = 0
+    end
     @booking.save
     redirect_to booking_path(@booking)
   end
@@ -33,6 +38,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :booking_status)
+    params.require(:booking).permit(:start_date, :end_date, :guests, :booking_status)
   end
 end

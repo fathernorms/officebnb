@@ -7,9 +7,11 @@
     <p><strong> Date: </strong></p> 
     <p><%= "#{@booking.start_date} - #{@booking.end_date}" %></p>
     <p><strong> No. of Guest: </strong></p>
-    <p> @booking.guest </p>
+    <p><%= @booking.guests %> </p>
+    <p><strong> Total Cost: </strong></p>
+    <p><%= @booking.cost %> </p>
     <p><strong> Booking Status: </strong></p>
-    <span class="badge badge-success"> Your Booking is Pending! </span>
+    <span class="badge badge-success"> <%= @booking.booking_status %> </span>
   </div>
 
   <div class="listing-details">
