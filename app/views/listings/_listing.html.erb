@@ -1,12 +1,16 @@
 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 my-2">
   <%= link_to listing_path(listing), data: { turbolinks: false }, class: 'text-decoration-none' do %>
     <div class="card-container mb-2 pb-2">
-      <img class="card-img-top" src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80" alt="Card image cap">
+      <% if listing.photos.length > 0%>
+        <%= cl_image_tag listing.photos.first.key, class: "card-img-top" %>
+      <% else %>
+        <img class="card-img-top" src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80" alt="Card image cap">
+      <% end %>
       <div class="d-flex flex-column">
         <div class="card-info">
             <h5 class="m-0 px-2 pt-2 pb-1"><%= listing.address %></h5>
         </div>
-        <div class="d-flex flex-row justify-content-between">
+        <div class="d-flex flex-row justify-content-between card-details">
           <p class="m-0 text-secondary px-2">Guests: <%= listing.capacity %></p>
           <p class="m-0 text-secondary px-2  ">S$<%= listing.rate_per_day.to_i %>/day</p>
         </div>
