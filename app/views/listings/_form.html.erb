@@ -1,13 +1,18 @@
 <div class="container">
-<div class="new-listing py-5 mb-5">
-  <%= simple_form_for listing do |f| %>
-    <%= f.input :name, label: 'Name of space:' %>
-    <%= f.input :address, label: 'Address of space:' %>
-    <%= f.input :description, as: :text, label: 'Description of space:' %>
-    <%= f.input :capacity, label: 'Capacity of space:' %>
-    <%= f.input :rate_per_day, label: 'Rate per day of space:' %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true, max: 2 }, label: 'Photos of your space: ' %>
-    <%= f.button :submit, class: "btn btn-primary" %>
-  <% end %>
+  <div class="new-listing p-0 my-5">
+    <div class="pl-5 my-5 w-50">
+    <h2 class="mb-3">Add new listing</h2>
+      <%= simple_form_for listing do |f| %>
+        <%= f.input :name, label: 'Name of listing:', placeholder:"eg. ABC space" %>
+        <%= f.input :address, label: 'Address:', placeholder: "eg. 123 ABC Street" %>
+        <%= f.input :description, as: :text, label: 'Description:', placeholder:"eg. Cosy place in a convenient location" %>
+        <%= f.input :capacity, label: 'Number of guests:', placeholder:"min. 1 pax" %>
+        <%= f.input :rate_per_day, label: 'Rate per day:', placeholder:"eg. 100" %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true, max: 2 }, label: 'Photos: ' %>
+        <%= f.button :submit, class: "mb-3 status confirmed btn12" %>
+      <% end %>
+    </div>
+    <div class="img-form">
+    </div>
   </div>
 </div>
