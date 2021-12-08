@@ -1,3 +1,6 @@
+$offwhite: darken(white, 10%);
+$darkblue: rgb(50,50,60);
+
 .tabs {
   overflow: hidden;
   border-bottom: 1px solid lightgrey;
@@ -58,6 +61,7 @@
   width: 140px;
   height: 35px;
   border-radius: 12px;
+  transition: ease 0.4s;
   i {
       width: 20%;
   }
@@ -74,7 +78,7 @@
   }
 
 .status.confirmed {
-  border: 1px solid white;
+  border: none;
   background-color: lime;
   color: white;
 }
@@ -83,6 +87,12 @@
   border: 1px solid red;
   background-color: white;
   color: red;
+
+  &:hover {
+    background-color: red;
+    border-color: white;
+    color: white;
+  }
 }
 
 #upcoming {
