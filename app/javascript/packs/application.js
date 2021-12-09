@@ -26,6 +26,7 @@ import { initMapbox } from "../plugins/init_mapbox"
 import "../controllers/index"
 import { initOpenModal } from "../plugins/init_openmodal"
 import { init_display_action } from "../plugins/init_display_action"
+import { init_host_mode } from "../plugins/init_host_mode"
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
@@ -33,4 +34,5 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   // initOpenModal();
   init_display_action();
+  init_host_mode();
 });
