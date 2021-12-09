@@ -5,8 +5,13 @@ const init_host_mode = () => {
     if (host === "Host") {
       $(".navbar-lewagon").css("backgroundColor", "#cef3db");
       $("#footer").css("backgroundColor", "#cef3db");
-
     }
+
+    if ($(".host-mode").html() === "Host") {
+      $(".navbar-lewagon").css("backgroundColor", "#cef3db");
+      $("#footer").css("backgroundColor", "#cef3db");
+    }
+
   });
 };
 

@@ -1,16 +1,10 @@
 <div class="container">
+  <% if current_user.id == @listing.user.id %>
+    <h2 class="mb-4 host-mode">Host</h2>
+  <% end %>
   <div class="p-0 mt-3">
     <div class="container-listing-top">
       <h2 class="mb-1"><%= @listing.name %></h2>
-      <% if @host %>
-        <%= link_to 'Edit listing', edit_listing_path(@listing), class: "text-decoration-none login-link ml-1 mr-2" %>
-        <%= link_to "Delete listing",
-            listing_path(@listing),
-            method: :delete,
-            data: { confirm: "Are you sure?" },
-            class: "text-decoration-none login-link m-0" %>
-        <%=  %>
-      <% end %>
     </div>
     <div class='d-flex flex-row justify-content-between'>
       <div>
@@ -19,6 +13,18 @@
         </p>
       </div>
       <div>
+        <% if current_user.id == @listing.user.id %>
+          <%= link_to(edit_listing_path(@listing), class: "text-decoration-none login-link ml-1 mr-2", style: "color: lime;") do %>
+            <i class="far fa-edit"> Edit Listing</i>
+          <% end %>
+          <%= link_to(listing_path(@listing),
+            method: :delete,
+            data: { confirm: "Are you sure?" },
+            class: "text-decoration-none login-link m-0",
+            style: "color: red;") do %>
+            <i class="far fa-trash-alt px-2"> Delete Listing</i>
+          <% end %>
+        <% end %>
         <i class="far fa-share-square px-2"> Share</i>
         <i class="far fa-heart px-2"> Save</i>
       </div>

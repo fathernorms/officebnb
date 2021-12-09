@@ -11,12 +11,12 @@
     <p class="m-0 p-0"><strong>Address</strong></p>
     <p class="text-secondary m-0 py-2"><%= "#{@booking.listing.address}" %></p>
     <p class="m-0 p-0"><strong> Start: </strong></p>
-    <p class="text-secondary m-0 py-2"><%= @booking.start_date %></p>
+    <p class="text-secondary m-0 py-2"><%= @booking.start_date.strftime('%a %d %b %Y') %></p>
     <p class="m-0 p-0"><strong> End: </strong></p>
-    <p class="text-secondary m-0 py-2"><%= @booking.end_date %></p>
+    <p class="text-secondary m-0 py-2"><%= @booking.end_date.strftime('%a %d %b %Y') %></p>
     <p class="m-0 p-0"><strong> No. of Guest</strong></p>
     <p class="text-secondary m-0 py-2"><%= @booking.guests %> </p>
-    <p class="m-0 p-0"><strong> Total Cost</strong></p>
+    <p class="m-0 p-0"><strong> Total Cost in SGD</strong></p>
     <p class="text-secondary  m-0 py-2"><%= @booking.cost %> </p>
     <p class="m-0 p-0"><strong> Booking Status</strong></p>
     <p class="text-secondary  m-0 py-2"><%= @booking.booking_status %></p>
