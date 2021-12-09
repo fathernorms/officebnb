@@ -96,12 +96,20 @@
             </div>
             <div class="d-flex align-items-center mr-4 review-details">
               <% if !u.review %>
-                <div class="status pending review d-flex align-items-center">
-                  <i class="ml-3 fas fa-seedling"></i>
-                  <div class="w-100 d-flex align-items-center justify-content-center">
-                    Pending Review
+                <% if u.booking_status != "CANCELLED" %>
+                  <div class="status pending review d-flex align-items-center">
+                    <i class="ml-3 fas fa-seedling"></i>
+                    <div class="w-100 d-flex align-items-center justify-content-center">
+                      Pending Review
+                    </div>
                   </div>
-                </div>
+                <% else %>
+                  <div class="status cancelled review d-flex align-items-center">
+                    <div class="w-100 d-flex align-items-center justify-content-center">
+                      <%= u.booking_status %>
+                    </div>
+                  </div>
+                <% end %>
             <% else %>
                 <div class="status confirmed review d-flex align-items-center">
                   <i class="ml-3 fas fa-check"></i>

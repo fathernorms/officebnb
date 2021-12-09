@@ -1,22 +1,29 @@
-<div class ="container-booking">
-  <div class="card-user">
-    <h3> Booking Ref #<%= @booking.id %></h3>
+<div class ="container-booking p-5 d-flex flex-column">
+  <div>
+    <h2> Booking Ref #<%= @booking.id %></h2>
+  </div>
+  <div>
+    <h4 class="my-2" style="color: lime;"><%= "Upcoming @ #{@booking.listing.name}"%></h4>
+  </div>
+  <div class="d-flex flex-row">
+    <div class="card-user m-0">
     <br>
-    <p><strong> Guest Name: </strong></p>
-    <p class="text-secondary"><%= @booking.user.first_name %></p>
-    <p><strong> Date: </strong></p>
-    <p class="text-secondary"><%= "#{@booking.start_date} to #{@booking.end_date}" %></p>
-    <p><strong> No. of Guest: </strong></p>
-    <p class="text-secondary"><%= @booking.guests %> </p>
-    <p><strong> Total Cost: </strong></p>
-    <p class="text-secondary"><%= @booking.cost %> </p>
-    <p><strong> Booking Status: </strong></p>
-    <p class="text-secondary"><%= @booking.booking_status %></p>
+    <p class="m-0 p-0"><strong>Address</strong></p>
+    <p class="text-secondary m-0 py-2"><%= "#{@booking.listing.address}" %></p>
+    <p class="m-0 p-0"><strong> Start: </strong></p>
+    <p class="text-secondary m-0 py-2"><%= @booking.start_date %></p>
+    <p class="m-0 p-0"><strong> End: </strong></p>
+    <p class="text-secondary m-0 py-2"><%= @booking.end_date %></p>
+    <p class="m-0 p-0"><strong> No. of Guest</strong></p>
+    <p class="text-secondary m-0 py-2"><%= @booking.guests %> </p>
+    <p class="m-0 p-0"><strong> Total Cost</strong></p>
+    <p class="text-secondary  m-0 py-2"><%= @booking.cost %> </p>
+    <p class="m-0 p-0"><strong> Booking Status</strong></p>
+    <p class="text-secondary  m-0 py-2"><%= @booking.booking_status %></p>
   </div>
 
   <div class="listing-details">
-    <h3><%= @booking.listing.name %></h3>
-    <p class="text-secondary"><%= @booking.listing.address %></p>
+
     <% if @booking.listing.photos.first %>
       <%= cl_image_tag @booking.listing.photos.first.key, class: "booking-img" %>
     <% else %>
@@ -24,13 +31,13 @@
     <% end %>
     <br>
     <br>
-    <%= link_to listings_path do %>
+    <%= link_to listings_path, class: "text-decoration-none" do %>
       <div class="mx-auto status confirmed review d-flex align-items-center">
-        <i class="ml-3 fas fa-seedling"></i>
         <div class="w-100 d-flex align-items-center justify-content-center">
         Back to listings
         </div>
       </div>
     <% end %>
+  </div>
   </div>
 </div>
