@@ -13,10 +13,10 @@ class BookingsController < ApplicationController
     @listing = Listing.find(params[:listing_id])
     @booking.listing = @listing
     @booking.user = current_user
-    if @booking.start_date && @booking.end_date
-      @booking.cost = (@booking.end_date - @booking.start_date) * @booking.listing.rate_per_day
+    if @booking.start_date == @booking.end_date
+      @booking.cost = @listing.rate_per_day * @booking.guests
     else
-      @booking.cost = 0
+      @booking.cost = @listing.rate_per_day * @booking.guests * (@booking.end_date - @booking.start_date)
     end
     @booking.save
     redirect_to booking_path(@booking)
