@@ -1,7 +1,8 @@
 <div class="container">
-  <% if current_user.id == @listing.user.id %>
+  <% if user_signed_in? && current_user.id == @listing.user.id %>
     <h2 class="mb-4 host-mode">Host</h2>
   <% end %>
+
   <div class="p-0 mt-3">
     <div class="container-listing-top">
       <h2 class="mb-1"><%= @listing.name %></h2>
@@ -13,7 +14,7 @@
         </p>
       </div>
       <div>
-        <% if current_user.id == @listing.user.id %>
+        <% if user_signed_in? && current_user.id == @listing.user.id %>
           <%= link_to(edit_listing_path(@listing), class: "text-decoration-none login-link ml-1 mr-2", style: "color: lime;") do %>
             <i class="far fa-edit"> Edit Listing</i>
           <% end %>
@@ -76,7 +77,11 @@
         <%= f.input :end_date, as: :date, input_html: { min: Date.today }, html5: true %>
         <%= f.input :guests, collection: 1..@listing.capacity %>
         <%= f.input :cost, label: "Cost in SGD", disabled: true %>
-        <%= f.button :submit, class:"status confirmed w-100" %>
+        <% if user_signed_in? %>
+          <%= f.button :submit, class:"status confirmed w-100" %>
+        <% else %>
+          <%= f.submit "Please log in to make a booking", class:"status pending w-100", disabled: true %>
+        <% end %>
       <% end %>
     </div>
   </div>
