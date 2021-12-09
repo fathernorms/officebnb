@@ -22,7 +22,7 @@ const init_booking_form_val = () => {
         var diff = Math.floor(
           (Date.parse(end.val()) - Date.parse(start.val())) / 86400000
         );
-        cost.val((diff * guests.val() * price).toFixed(2));
+        cost.val(((diff + 1) * guests.val() * price).toFixed(2));
       }
     }
   );

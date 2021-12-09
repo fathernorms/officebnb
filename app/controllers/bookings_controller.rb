@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
     if @booking.start_date == @booking.end_date
       @booking.cost = @listing.rate_per_day * @booking.guests
     else
-      @booking.cost = @listing.rate_per_day * @booking.guests * (@booking.end_date - @booking.start_date)
+      @booking.cost = @listing.rate_per_day * @booking.guests * ((@booking.end_date - @booking.start_date).to_i + 1)
     end
     @booking.save
     redirect_to booking_path(@booking)
