@@ -81,6 +81,11 @@ $darkblue: rgb(50,50,60);
   border: none;
   background-color: lime;
   color: white;
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .status.cancelled {
