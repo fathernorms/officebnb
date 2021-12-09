@@ -25,7 +25,7 @@
     </div>
   </div>
   <div class="m-0 p-0 container cb">
-    <% if @listing.photos.first %>
+    <% if @listing.photos.length > 1 %>
       <div class="m-0 row photos">
         <%= render "photos", listing: @listing %>
       </div>
