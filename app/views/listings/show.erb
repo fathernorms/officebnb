@@ -64,11 +64,12 @@
       <div id="calendar">
       </div>
     </div>
-    <div class="booking col-5">
+    <div class="booking col-5" id="list-price" data-price="<%= @listing.rate_per_day %>">
       <%= simple_form_for [@listing, @booking] do |f| %>
-        <%= f.input :start_date, as: :date, html5: true %>
-        <%= f.input :end_date, as: :date, html5: true %>
+        <%= f.input :start_date, as: :date, input_html: { min: Date.today }, html5: true %>
+        <%= f.input :end_date, as: :date, input_html: { min: Date.today }, html5: true %>
         <%= f.input :guests, collection: 1..@listing.capacity %>
+        <%= f.input :cost, label: "Cost in SGD", disabled: true %>
         <%= f.button :submit, class:"status confirmed w-100" %>
       <% end %>
     </div>

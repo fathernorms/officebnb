@@ -27,6 +27,7 @@ import "../controllers/index"
 import { initOpenModal } from "../plugins/init_openmodal"
 import { init_display_action } from "../plugins/init_display_action"
 import { init_host_mode } from "../plugins/init_host_mode"
+import { init_booking_form_val } from "../plugins/init_booking_form_val"
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
@@ -35,4 +36,5 @@ document.addEventListener('turbolinks:load', () => {
   // initOpenModal();
   init_display_action();
   init_host_mode();
+  init_booking_form_val();
 });
