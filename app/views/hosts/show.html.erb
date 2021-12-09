@@ -28,7 +28,7 @@
                 </p>
                 <p class="m-0 p-0 pt-2 text-secondary"><strong>Duration: </strong><%= "#{u.start_date} to #{u.end_date}" %></p>
                 <p class="m-0 p-0 pt-2 text-secondary"><strong>Number of Guests: </strong><%= u.guests %></p>
-                <p class="m-0 p-0 pt-2 text-secondary"><strong>Total Costs: </strong><%= u.cost%></p>
+                <p class="m-0 p-0 pt-2 text-secondary"><strong>Total Cost: </strong><%= u.cost%></p>
               </div>
             </div>
             <div class="d-flex align-items-center mr-4 review-details">
@@ -55,7 +55,7 @@
               <%= button_to 'Confirm', confirm_booking_path(u), class: "status confirmed mx-4" %>
               <%= button_to 'Cancel', cancel_booking_path(u), class: "status cancelled mx-4" %>
             <% else %>
-              <%= button_to 'Completed', complete_booking_path(u), class: "status confirmed mx-4" %>
+              <%= button_to 'Completed?', complete_booking_path(u), class: "status confirmed mx-4" %>
             <% end %>
           </div>
           </div>
@@ -93,7 +93,7 @@
                 </p>
                 <p class="m-0 p-0 pt-2 text-secondary"><strong>Duration: </strong><%= "#{u.start_date} to #{u.end_date}" %></p>
                 <p class="m-0 p-0 pt-2 text-secondary"><strong>Number of Guests: </strong><%= u.guests %></p>
-                <p class="m-0 p-0 pt-2 text-secondary"><strong>Total Costs: </strong><%= u.cost%></p>
+                <p class="m-0 p-0 pt-2 text-secondary"><strong>Total Cost: </strong><%= u.cost%></p>
               </div>
             </div>
             <div class="d-flex align-items-center mr-4 review-details">
