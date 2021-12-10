@@ -1,3 +1,71 @@
-<% @upcoming.each do |upcoming|%>
-  <%= upcoming.user.first_name %>
-<% end %>
+<div class="container mt-4" data-controller="tab">
+  <h2 class="mb-4">Listings</h2>
+  <div class="tabs mb-0">
+    <div class="tablinks active" id="btn-upcoming" data-action="click->tab#displayUpcoming">All</div>
+  </div>
+
+  <div class="tabcontent m-0 p-0" id="upcoming" data-tab-target="tabcontent" >
+    <% if @listings.length > 0 %>
+      <% @listings.each do |u| %>
+        <div class="m-0 py-3 d-flex flex-column justify-content-between reservation" data-bookingId="<%= u.id %>">
+          <div class="m-0 pl-3 mt-2">
+            <%= link_to(u, class: "text-decoration-none") do %>
+                <h4 class="m-0 p-0"><%= u.name %></h4>
+              <% end %>
+          </div>
+          <div class="p-0 my-3 d-flex flex-row justify-content-between">
+            <div class = "d-flex flex-row user-info m-0">
+              <div class="d-flex align-items-center justify-content-center pl-3">
+                <% if u.photos.first %>
+                  <%= cl_image_tag u.photos.first.key, class:"avatar-square m-0 mr-4 p-0" %>
+                <% else %>
+                  <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80" class="avatar-square m-0 mr-2 p-0" alt="">
+                <% end %>
+              </div>
+              <div class="pl-3">
+                <p class="m-0 p-0 pt-2 text-secondary"><strong>Name: </strong><%= "#{u.name}" %></p>
+                <p class="m-0 p-0 pt-2 text-secondary"><strong>Location: </strong><%= "#{u.address}" %></p>
+                <p class="m-0 p-0 pt-2 text-secondary"><strong>Description: </strong><%= u.description %></p>
+                <p class="m-0 p-0 pt-2 text-secondary"><strong>Number Of Guests: </strong><%= "#{u.capacity}" %></p>
+                <p class="m-0 p-0 pt-2 text-secondary"><strong>Total Cost: $</strong><%= "#{u.rate_per_day}" %></p>
+              </div>
+            </div>
+            <div class="w-25 baction m-0 p-0" id="<%= u.id %>">
+              <div class="d-flex flex-column w-100 align-items-center justify-content-center m-0 p-0">
+                <div>
+                  <%= link_to(edit_listing_path(u), class: "text-decoration-none login-link ml-1 mr-2", style: "color: lime;") do %>
+                    <div class="status pending host d-flex align-items-center">
+                      <i class="ml-3 far fa-edit"></i>
+                      <div class="w-100 d-flex align-items-center justify-content-center">
+                      Edit Listing
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+                <div>
+                  <%= link_to(listing_path(u),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" },
+                    class: "text-decoration-none login-link ml-1 mr-2",
+                    style: "color: red;") do %>
+                    <div class="status cancelled host d-flex align-items-center">
+                      <i class="far fa-trash-alt ml-3"></i>
+                      <div class="w-100 d-flex align-items-center justify-content-center">
+                      Delete Listing
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+        </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="blankboard">
+        <p class="py-3">When you’re ready to start planning your next trip, we’re here to help.</p>
+        <img src="https://images.unsplash.com/photo-1428908728789-d2de25dbd4e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
+      </div>
+    <% end %>
+  </div>
+</div>

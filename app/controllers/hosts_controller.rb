@@ -14,6 +14,11 @@ class HostsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
+  def all_listings
+    @host = User.find(params[:id])
+    @listings = @host.listings
+  end
+
   private
 
   def bookings_retrieval(host, status)
