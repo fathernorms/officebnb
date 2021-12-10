@@ -11,4 +11,6 @@ class Listing < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  validates :photos, attached: true, limit: { min: 2, max: 5, message: 'Please upload at least 2 photos. Maximum of 5 allowed' }, content_type: ['image/png', 'image/jpg', 'image/jpeg']
 end

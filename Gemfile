@@ -31,6 +31,8 @@ gem 'geocoder'
 
 gem 'stimulus-rails'
 
+gem 'active_storage_validations'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
