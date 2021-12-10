@@ -83,9 +83,21 @@
 
   <div class="container-review border-top pt-2 mt-4">
     <h3 class="mb-2 p-0">Reviews</h3>
-    <p>BLAH</p>
-    <p>BLAH</p>
-    <p>BLAH BLAH</p>
+    <% if @listing_reviews.empty? %>
+      <small><em class="text-muted">Be the first one to review this list</em></small>
+    <% end %>
+
+    <% @listing_reviews.each do |listing_review| %>
+      <div>
+        <i class="mb-0"><%= listing_review.user_review %></i>
+        <% listing_review.user_rating.times do %>
+            <i class="fas fa-star star"></i>
+        <% end %>
+        <% (5 - listing_review.user_rating).times do %>
+            <i class="far fa-star"></i>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 
   <div class="border-top pt-3 my-5">
