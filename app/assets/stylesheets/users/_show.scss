@@ -71,10 +71,19 @@ $darkblue: rgb(50,50,60);
   width: 200px;
 }
 
+.status.host {
+  width: 170px;
+}
+
 .status.pending {
   border: 1px solid lime;
   background-color: white;
   color: lime;
+
+  &:hover {
+    border: 1px solid white;
+    background-color: #ccffc7;
+  }
   }
 
 .status.confirmed {

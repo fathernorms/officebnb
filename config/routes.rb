@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   post '/cancel/:id', to: 'bookings#cancel', as: 'cancel_booking'
   post '/user_cancel/:id', to: 'bookings#user_cancel', as: 'user_cancel_booking'
   post '/complete/:id', to: 'bookings#complete', as: 'complete_booking'
+  get '/hosts/:id/listings', to: 'hosts#all_listings', as: 'host_all_listings'
 end
