@@ -28,6 +28,7 @@
                 <p class="m-0 p-0 pt-2 text-secondary"><strong>Description: </strong><%= u.description %></p>
                 <p class="m-0 p-0 pt-2 text-secondary"><strong>Number Of Guests: </strong><%= "#{u.capacity}" %></p>
                 <p class="m-0 p-0 pt-2 text-secondary"><strong>Total Cost: $</strong><%= "#{u.rate_per_day}" %></p>
+                <p class="m-0 p-0 pt-2 text-secondary"><strong>Total Bookings: </strong><%= "#{u.bookings.length}" %></p>
               </div>
             </div>
             <div class="w-25 baction m-0 p-0" id="<%= u.id %>">
