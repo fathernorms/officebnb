@@ -1,7 +1,14 @@
 <div class="container">
-  <%= simple_form_for [@booking, @review] do |f| %>
-    <%= f.input :user_review, label: 'Leave a user review:' %>
-    <%= f.input :user_rating, label: 'Leave a user rating:' %>
-    <%= f.button :submit, class: "btn btn-success" %>
-  <% end %>
+  <div class="new-listing p-0 my-5" >
+    <div class="px-5 mt-4 mb-1 w-50">
+    <h2 class="mb-3">Add New Review</h2>
+      <%= simple_form_for [@booking, @review] do |f| %>
+        <%= f.input :user_review, label: 'Leave a user review:' %>
+        <%= f.input :user_rating, label: 'Leave a user rating:' %>
+        <%= f.button :submit, class: "mb-3 status confirmed btn12" %>
+      <% end %>
+    </div>
+    <div class="img-form">
+    </div>
+  </div>
 </div>
