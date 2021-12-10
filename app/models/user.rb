@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :listings
   has_many :bookings
   has_one_attached :photo
+
+  validates :photo, content_type: ['image/png', 'image/jpg', 'image/jpeg']
 end
