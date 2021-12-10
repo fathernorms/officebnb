@@ -13,4 +13,8 @@ class HostsController < ApplicationController
   def edit
     @booking = Booking.find(params[:id])
   end
+
+  def all_listings
+    @host = User.find(params[:id])
+  end
 end
