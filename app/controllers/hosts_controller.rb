@@ -2,8 +2,8 @@ class HostsController < ApplicationController
   def show
     @host = User.find(params[:id])
     if @host.listings.length.positive?
-      @upcoming = @host.listings.first.bookings.where(booking_status: ["PENDING", "CONFIRMED"])
-      @past = @host.listings.first.bookings.where(booking_status: ["COMPLETED", "CANCELLED"])
+      @upcoming = bookings_retrieval(@host, "upcoming")
+      @past = bookings_retrieval(@host, "past")
     else
       @upcoming = []
       @past = []
@@ -14,7 +14,17 @@ class HostsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
-  def all_listings
-    @host = User.find(params[:id])
+  private
+
+  def bookings_retrieval(host, status)
+    result = []
+    host.listings.find_each do |l|
+      if status == "upcoming"
+        result.push(l.bookings.where(booking_status: ["PENDING", "CONFIRMED"]))
+      else
+        result.push(l.bookings.where(booking_status: ["COMPLETED", "CANCELLED"]))
+      end
+    end
+    result.flatten!
   end
 end
