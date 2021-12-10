@@ -12,6 +12,10 @@ const init_host_mode = () => {
       $("#footer").css("backgroundColor", "#cef3db");
     }
 
+    if ($(".host-listings").html() === "Listings") {
+      $(".navbar-lewagon").css("backgroundColor", "#cef3db");
+      $("#footer").css("backgroundColor", "#cef3db");
+    }
   });
 };
 
