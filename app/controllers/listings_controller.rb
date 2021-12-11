@@ -43,10 +43,12 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id])
     @host = @listing.user == current_user
-    
     @listing_reviews = []
-    @listing.bookings.each do |booking|
-      @listing_reviews << booking.review
+
+    @listing.bookings.where(booking_status: "COMPLETED").each do |booking|
+      if booking.review
+        @listing_reviews << booking.review
+      end
     end
 
     @marker = [{ lat: @listing.latitude, lng: @listing.longitude }]
