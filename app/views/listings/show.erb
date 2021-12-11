@@ -90,6 +90,7 @@
     <h3 class="mb-2 p-0">Reviews</h3>
     <% if @listing_reviews.empty? %>
       <small><em class="text-muted">Be the first one to review this list</em></small>
+<<<<<<< HEAD
     <% end %>
 
     <% @listing_reviews.each do |listing_review| %>
@@ -103,6 +104,12 @@
         </div>
         <div class="review-user ml-2"> <%= @booking.user.first_name %>
         <br>
+=======
+    <% else %>
+      <% @listing_reviews.each do |listing_review| %>
+        <div>
+          <i class="mb-0"><%= listing_review.user_review %></i>
+>>>>>>> 539ab17266076368e906e3f87bf740ea22f58542
           <% listing_review.user_rating.times do %>
               <i class="fas fa-star star"></i>
           <% end %>
@@ -110,10 +117,14 @@
               <i class="far fa-star"></i>
           <% end %>
         </div>
+<<<<<<< HEAD
       </div>
       <div>
         <i class="mb-0"><%= listing_review.user_review %></i>
       </div>
+=======
+      <% end %>
+>>>>>>> 539ab17266076368e906e3f87bf740ea22f58542
     <% end %>
   </div>
 
