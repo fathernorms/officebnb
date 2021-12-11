@@ -95,13 +95,13 @@
         <div>
         <div class="d-flex flex-row">
           <div class="review-user-image">
-            <% if @booking.user.photo.key %>
-              <%= cl_image_tag @booking.user.photo.key, class: "avatar" %>
+            <% if listing_review.booking.user.photo.key %>
+              <%= cl_image_tag listing_review.booking.user.photo.key, class: "avatar" %>
             <% else %>
               <%= image_tag "default_user.png", class: "avatar" %>
             <% end %>
           </div>
-          <div class="review-user ml-2"> <%= @booking.user.first_name %>
+          <div class="review-user ml-2"> <%= listing_review.booking.user.first_name %>
           <br>
             <% listing_review.user_rating.times do %>
             <i class="fas fa-star star"></i>
