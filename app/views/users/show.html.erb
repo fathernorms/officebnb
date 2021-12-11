@@ -93,12 +93,14 @@
             <div class="d-flex align-items-center mr-4 review-details">
               <% if !u.review %>
                 <% if u.booking_status != "CANCELLED" %>
-                  <div class="status pending review d-flex align-items-center">
-                    <i class="ml-3 fas fa-seedling"></i>
-                    <div class="w-100 d-flex align-items-center justify-content-center">
-                      Leave A Review
+                  <%= link_to(new_booking_review_path(u), class: "text-decoration-none") do%> <%# Changed %>
+                    <div class="status pending review d-flex align-items-center">
+                      <i class="ml-3 fas fa-seedling"></i>
+                      <div class="w-100 d-flex align-items-center justify-content-center">
+                        Leave A Review
+                      </div>
                     </div>
-                  </div>
+                  <% end %> <%# Changed %>
                 <% else %>
                   <div class="status cancelled review d-flex align-items-center">
                     <div class="w-100 d-flex align-items-center justify-content-center">
