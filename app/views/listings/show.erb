@@ -93,14 +93,26 @@
     <% end %>
 
     <% @listing_reviews.each do |listing_review| %>
+      <div class="d-flex flex-row">
+        <div class="review-user-image"> 
+          <% if @booking.user.photo.key %>
+            <%= cl_image_tag @booking.user.photo.key, class: "avatar" %>
+          <% else %>
+            <%= image_tag "default_user.png", class: "avatar" %>
+          <% end %>
+        </div>
+        <div class="review-user ml-2"> <%= @booking.user.first_name %>
+        <br>
+          <% listing_review.user_rating.times do %>
+              <i class="fas fa-star star"></i>
+          <% end %>
+          <% (5 - listing_review.user_rating).times do %>
+              <i class="far fa-star"></i>
+          <% end %>
+        </div>
+      </div>
       <div>
         <i class="mb-0"><%= listing_review.user_review %></i>
-        <% listing_review.user_rating.times do %>
-            <i class="fas fa-star star"></i>
-        <% end %>
-        <% (5 - listing_review.user_rating).times do %>
-            <i class="far fa-star"></i>
-        <% end %>
       </div>
     <% end %>
   </div>
