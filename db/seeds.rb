@@ -13,7 +13,7 @@ require 'faker'
                       password: rand(100_000..999_999),
                       first_name: Faker::Name.first_name,
                       last_name: Faker::Name.last_name)
-  2.times do
+  1.times do
     user.listings.create!(
       name: Faker::Mountain.name,
       address: "51 Cuppage Road, Singapore",
