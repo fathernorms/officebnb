@@ -90,18 +90,18 @@
     <h3 class="mb-2 p-0">Reviews</h3>
     <% if @listing_reviews.empty? %>
       <small><em class="text-muted">Be the first one to review this list</em></small>
-    <% end %>
-
-    <% @listing_reviews.each do |listing_review| %>
-      <div>
-        <i class="mb-0"><%= listing_review.user_review %></i>
-        <% listing_review.user_rating.times do %>
-            <i class="fas fa-star star"></i>
-        <% end %>
-        <% (5 - listing_review.user_rating).times do %>
-            <i class="far fa-star"></i>
-        <% end %>
-      </div>
+    <% else %>
+      <% @listing_reviews.each do |listing_review| %>
+        <div>
+          <i class="mb-0"><%= listing_review.user_review %></i>
+          <% listing_review.user_rating.times do %>
+              <i class="fas fa-star star"></i>
+          <% end %>
+          <% (5 - listing_review.user_rating).times do %>
+              <i class="far fa-star"></i>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 
