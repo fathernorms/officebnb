@@ -16,7 +16,7 @@ require 'faker'
   2.times do
     user.listings.create!(
       name: Faker::Mountain.name,
-      address: Faker::Address.full_address,
+      address: "51 Cuppage Road, Singapore",
       description: Faker::Lorem.paragraph,
       capacity: rand(1..10),
       rate_per_day: rand(100..300)
